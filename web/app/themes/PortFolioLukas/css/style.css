@@ -1,49 +1,42 @@
-body,html {
-    margin: 0;
-    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
-    background: #000;
-  }
-  ul { 
-    margin: 150px auto 0; 
-    padding: 0; 
-    list-style: none; 
-    display: table;
-    width: 600px;
-    text-align: center;
-  }
-  li { 
-    display: table-cell; 
-    position: relative; 
-    padding: 15px 0;
-  }
-  a {
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    
-    display: inline-block;
-    padding: 15px 20px;
-    position: relative;
-  }
-  a:after {    
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #fff;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-  a:hover:after { 
-    width: 100%; 
-    left: 0; 
-  }
-  @media screen and (max-height: 300px) {
-    ul {
-      margin-top: 40px;
-    }
-  }
+/* Header */
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+#large-header {
+	background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
+}
+
+.main-title {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	color: #f9f1e9;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
+
+.demo-1 .main-title {
+	text-transform: uppercase;
+	font-size: 4.2em;
+	letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+	font-weight: 200;
+}
+
+@media only screen and (max-width : 768px) {
+	.demo-1 .main-title {
+		font-size: 3em;
+	}
+}
