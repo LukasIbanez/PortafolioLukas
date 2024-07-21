@@ -12,6 +12,7 @@
     
     <?php wp_head(); ?>
 </head>
+
 <body>
     <ul>
         <li><a href="#">About</a></li>
